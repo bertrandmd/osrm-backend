@@ -131,6 +131,7 @@ install:
   - mkdir build && pushd build
   - export CC=${CCOMPILER} CXX=${CXXCOMPILER}
   - cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS:-OFF} -DENABLE_COVERAGE=${ENABLE_COVERAGE:-OFF} -DENABLE_SANITIZER=${ENABLE_SANITIZER:-OFF} -DBUILD_TOOLS=ON -DBUILD_COMPONENTS=ON -DENABLE_CCACHE=ON
+  - cat /home/travis/build/Project-OSRM/osrm-backend/build/CMakeFiles/CMakeError.log
   - echo "travis_fold:start:MAKE"
   - make osrm-extract --jobs=3
   - make --jobs=${JOBS}
